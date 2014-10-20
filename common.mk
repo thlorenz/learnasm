@@ -8,6 +8,9 @@ DBGI=stabs
 
 all: $(EXEC)
 
+gdb: clean $(EXEC)
+	gdb $(EXEC) 
+
 $(OBJS): $(SRCS)
 	@nasm -f elf64 -g -F $(DBGI) $^ 
 
@@ -17,4 +20,4 @@ $(EXEC): $(OBJS)
 clean:
 	@rm -f $(OBJS) $(EXEC)
 
-.PHONY: all clean
+.PHONY: all clean gdb

@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+NAME=$1
+
+mkdir $NAME
+ln -s ../common.mk ./$NAME/Makefile
+cp ./.skeleton/main.asm ./$NAME/$NAME.asm
