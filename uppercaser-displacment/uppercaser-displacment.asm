@@ -48,9 +48,6 @@ read:           mov eax, 3                           ; sys_read
 
 process_buff:   mov ecx, esi                         ; number of bytes read
 
-                mov ebp, Buff                        ; set ebp to buffer address
-
-
 process_char:   cmp byte [Buff - 1 + ecx], 61h       ; don't change chars before 'a'
                 jb  next
 
