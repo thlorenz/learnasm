@@ -3,13 +3,14 @@ EXEC=$(shell basename $$PWD)
 SRCS=$(EXEC).asm
 OBJS=$(EXEC).o
 
-# dwarf info is more powerful but to start out stabs is good 
-DBGI=stabs
+# dwarf info is more powerful but to start out stabs is good as well
+DBGI=dwarf
+# DBGI=stabs
 
 all: $(EXEC)
 
-gdb: clean $(EXEC)
-	gdb $(EXEC) 
+lldb: clean $(EXEC)
+	lldb -- $(EXEC)
 
 $(OBJS): $(SRCS)
 	@nasm -f elf64 -g -F $(DBGI) $^ 
